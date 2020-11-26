@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function generate(){
+	var top, left, n, c;
+	var colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Indigo', 'Violet'];
+	n = 100;
+	for (var i = 0; i < n; i++) {
+
+  	var newdiv = $("<div class='child_div' style='width: 50px; height: 50px; position: absolute ;'></div>");
+  	 top = (Math.random() * 400) + "px";
+  	 left = (Math.random() * 400 )+ "px";
+
+
+	newdiv.css({
+	    "top": top,
+	    "left": left
+	});
+
+	c= Math.floor(Math.random() * colors.length);
+	var chosen_c=  colors[c] ;
+	$(newdiv).css('background-color', chosen_c ); //getRandomColor);
+	$("#container").append(newdiv);
+
+}
+
+	$(".child_div").mouseover(function(){
+		if ($(this).is(':only-child')){
+			alert("Last One!");
+		}
+		$(this).remove();
+	});
+
+	$("#btn1").click(function(){
+    generate();
+  	});
+
+
+
+});
+
+
+</script>
+
+<style>
+#container{
+  width: 450px;
+  height: 450px;
+  position: relative;
+}
+
+#box{
+	width: 450px;
+	border: 1px solid green;
+}
+
+</style>
+
+</head>
+<body>
+
+<div id="box">
+
+	<div id="container"></div>
+
+	<button id="btn1">Generate More</button>
+</div>
+
+</body>
+</html>
+
