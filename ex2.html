@@ -37,9 +37,9 @@
                 
                 while (currentImg==images[x])//if the same image generates, generate different number
                 {
-                    var x=Math.floor(size*Math.random());
+                    x=Math.floor(size*Math.random());
                 }
-                $("#face").attr("src", images[x]);
+                $("img").attr("src", images[x]);
             }
 
             window.onload=display_random();
