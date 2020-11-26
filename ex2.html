@@ -17,36 +17,44 @@
     <body>
         <div class="container">
             <h4>My current mood is....</h4>
-                <img class="face" id="face" height="400" width="350" src="face1.jpg"
+                <img class="face" id="face" height="400" width="350" src=""
                 alt="Displaying Face"/>      
         </div>
         <script>
-            function display_random(){
+            function display_random(load){
+                //this function is to display random image but not the same image on display.
+                //if the window is loading, it will randomly display either one of the 4 images.
+                //if the cursor hovers over the image, it will randomly display one of the images except face1.jpg
+
                 //process image source path
                 var source=$("img").attr("src");
                 var currentImg=source.substring(source.length-9);
-            
+                var x;
+
                 var images = new Array();
-                images[0]="face1.jpg"
-                images[1]="face2.jpg"
-                images[2]="face3.jpg"
-                images[3]="face4.jpg"
-            
-                var size=images.length;
-                var x=Math.floor(size*Math.random());//generate random number from 0 to 4
-                
-                while (currentImg==images[x])//if the same image generates, generate different number
-                {
-                    x=Math.floor(size*Math.random());
+                images[0]="face4.jpg"
+                images[1]="face3.jpg"
+                images[2]="face2.jpg"
+                images[3]="face1.jpg"
+
+                x=Math.floor(Math.random()*images.length);//randomly generate from 0 to 3
+
+                if (load==false){//for mouseover event
+                    x=Math.floor(Math.random()*(images.length-1));//generate from 0 to 2 and avoid 3.
+                } 
+
+                while(images[x]==currentImg){//if the 2 images are the same, regenerate random number
+                        x=Math.floor(Math.random()*(images.length-1));
                 }
+
                 $("img").attr("src", images[x]);
             }
 
-            window.onload=display_random();
+            window.onload=display_random(true);
     
             $(document).ready(function(){
                 $("img").mouseover(function(){
-                                display_random();
+                                display_random(false);
                             });
             });
         </script>
