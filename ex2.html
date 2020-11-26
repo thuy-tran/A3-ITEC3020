@@ -9,18 +9,46 @@
                 align-items: center;
                 justify-content: center;
                 color: black;
-                background-color: aquamarine;
+                background-color:aquamarine;
             }
         </style>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script type="text/javascript" src="ex2.js"></script>
     </head>
     <body>
         <div class="container">
             <h4>My current mood is....</h4>
-            <img class="face" id="face" height="400" width="350"  src="face1.jpg"
-            alt="Displaying Face" onmouseover="display_random()"/>
-            <script> window.onload=display_random()</script>
+                <img class="face" id="face" height="400" width="350" src="face1.jpg"
+                alt="Displaying Face"/>      
         </div>
+        <script>
+            function display_random(){
+                //process image source path
+                var source=$("img").attr("src");
+                var currentImg=source.substring(source.length-9);
+            
+                var images = new Array();
+                images[0]="face1.jpg"
+                images[1]="face2.jpg"
+                images[2]="face3.jpg"
+                images[3]="face4.jpg"
+            
+                var size=images.length;
+                var x=Math.floor(size*Math.random());//generate random number from 0 to 4
+                
+                while (currentImg==images[x])//if the same image generates, generate different number
+                {
+                    var x=Math.floor(size*Math.random());
+                }
+                $("#face").attr("src", images[x]);
+            }
+
+            window.onload=display_random();
+    
+            $(document).ready(function(){
+                $("img").mouseover(function(){
+                                display_random();
+                            });
+            });
+        </script>
     </body>
 </html>
