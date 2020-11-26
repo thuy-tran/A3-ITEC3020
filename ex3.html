@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Validation</title>
+        <meta charset="utf-8"/>
+        <style>
+            *{
+                box-sizing: border-box;
+            }
+            body{
+                background-color: #9b59b6;
+                display: flex;
+                font-family: monospace;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                margin: 0;
+            }
+
+            .container h4{
+                font-size: 40px;
+                text-transform: uppercase;
+            }
+
+            .buttons{
+                padding-left: 5rem;
+            }
+            
+        </style>
+        <script type=text/javascript src="ex3.js"></script>
+    </head>
+    <body>
+        <div class=container>
+            <h4>My Student Account</h4>
+            <form action="" id="myForm">
+                <table>
+                    <tr>
+                        <label>
+                            <td>Name:</td>
+                            <td>
+                                <input type="text" class ="myElement" id="name" size=20 placeholder="Enter Name"/>
+                            </td>
+                        </label>
+                    </tr>
+                    <tr>
+                        <label>
+                            <td>Student ID (9 digits):</td>
+                            <td>
+                                <input type="text" class ="myElement" id="stdID" size=20 placeholder="Enter Student ID"/>
+                            </td>
+                        </label>
+                        </tr>
+                        <tr>
+                            <label>
+                                <td>Email:</td>
+                                <td>
+                                    <input type="text" class ="myElement" id="email" size=20 placeholder="Enter Email"/>
+                                </td>
+                            </label>
+                        </tr>
+                </table>
+                <br/><br/>
+                <div class="buttons">
+                    <input type="reset" name="reset"/>
+                    <input type="submit" name="submit"/>
+                </div>
+            </form>
+        </div>
+        <script type=text/javascript src="ex3r.js"></script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Mood Swing</title>
+        <style>
+            body{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: black;
+                background-color: aquamarine;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="ex2.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <h4>My current mood is....</h4>
+            <img class="face" id="face" height="400" width="350"  src="face1.jpg"
+            alt="Displaying Face" onmouseover="display_random()"/>
+            <script> window.onload=display_random()</script>
+        </div>
+    </body>
+</html>
